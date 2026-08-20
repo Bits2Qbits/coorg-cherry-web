@@ -88,10 +88,8 @@ nav.hidden{transform:translateY(-100%)}
 section{position:relative;overflow:hidden}
 .section-fade{opacity:1;transition:opacity .6s ease}
 .section-fade.in-view{opacity:1}
-@media(prefers-reduced-motion:no-preference){
-  .section-fade{opacity:0}
-  .section-fade.in-view{opacity:1}
-}
+
+/* Fade-in animation: progressive enhancement only */
 .bg-bleed{
   position:absolute;inset:0;
   background-size:cover;background-position:center;
