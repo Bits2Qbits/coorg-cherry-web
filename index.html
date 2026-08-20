@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coorg Cherry — Direct-Trade Coffee Beans | Coorg, India</title>
+<meta name="description" content="Single-origin Arabica, hand-picked from rainforest canopies 1,000–1,750m up in the Western Ghats. Direct-trade coffee beans from Coorg, India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   COORG CHERRY — BRAND SYSTEM
+   Forest Green #2D5A27 · Burgundy #5C1A1B · Cream #FAF7F2 · Gold #C9A84C
+   ============================================================ */
+:root{
+  --green:#2D5A27;
+  --burgundy:#5C1A1B;
+  --cream:#FAF7F2;
+  --gold:#C9A84C;
+  --sans:'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Times New Roman',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--green);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.75;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:var(--green);text-decoration:none}
+a:hover{text-decoration:underline}
+
+h1,h2,h3,.sans{
+  font-family:var(--sans);
+  font-weight:300;
+  letter-spacing:.08em;
+  color:var(--green);
+}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);text-transform:uppercase}
+.sub-label{
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:.85rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--burgundy);
+  margin-top:.6rem;
+}
+
+/* ---------- NAV ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,247,242,.92);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.55rem 1.6rem;
+  transition:transform .4s ease;
+}
+nav.hidden{transform:translateY(-100%)}
+.nav-logo{display:flex;align-items:center;gap:.6rem}
+.nav-logo img{height:38px;width:auto}
+.nav-logo span{
+  font-family:var(--sans);font-weight:400;
+  letter-spacing:.18em;font-size:.8rem;color:var(--green);
+  text-transform:uppercase;
+}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-family:var(--sans);font-weight:300;
+  font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--green);
+}
+.nav-links a:hover{color:var(--burgundy);text-decoration:none}
+.hamburger{
+  display:none;background:none;border:none;cursor:pointer;
+  flex-direction:column;gap:5px;padding:6px;
+}
+.hamburger span{display:block;width:24px;height:2px;background:var(--green)}
+
+/* ---------- SECTIONS COMMON ---------- */
+section{position:relative;overflow:hidden}
+.section-fade{opacity:0;transition:opacity .6s ease}
+.section-fade.in-view{opacity:1}
+.bg-bleed{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  will-change:transform;
+}
+.content{
+  position:relative;z-index:5;
+  max-width:1100px;margin:0 auto;
+  padding:6rem 1.6rem;
+}
+.cta{
+  display:inline-block;
+  font-family:var(--sans);font-weight:400;
+  font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;
+  background:var(--burgundy);color:var(--cream);
+  border:1px solid var(--gold);
+  padding:.9rem 2.4rem;
+  cursor:pointer;
+  transition:background .3s ease,transform .3s ease;
+}
+.cta:hover{background:#6e2224;text-decoration:none;transform:translateY(-2px)}
+.gold-rule{
+  width:120px;height:1px;background:var(--gold);
+  margin:2.2rem auto;border:none;
+}
+
+/* ---------- SECTION 1 — HERO ---------- */
+#hero{height:100vh;min-height:640px}
+#hero .bg-sky{
+  position:absolute;inset:0;
+  background:url('img/section_hero.jpg') center top/cover no-repeat;
+}
+#hero .island{
+  position:absolute;inset:0;
+  background:url('img/section_hero.jpg') center top/cover no-repeat;
+  /* show only the island (lower ~60% of the frame) */
+  -webkit-mask-image:linear-gradient(to bottom,transparent 32%,#000 46%);
+  mask-image:linear-gradient(to bottom,transparent 32%,#000 46%);
+  animation:islandBob 4.5s ease-in-out infinite;
+  will-change:transform;
+}
+@keyframes islandBob{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+#hero .scrim{
+  position:absolute;left:0;right:0;top:0;bottom:0;
+  background:linear-gradient(to bottom,rgba(28,52,24,0) 30%,rgba(28,52,24,.35) 55%,rgba(24,44,20,.72) 100%);
+  z-index:2;
+}
+.hero-inner{
+  position:relative;z-index:6;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  text-align:center;padding-bottom:7vh;
+}
+.hero-wordmark{
+  font-family:var(--sans);font-weight:300;
+  font-size:clamp(1.4rem,3.4vw,2.2rem);
+  letter-spacing:.34em;color:var(--cream);
+  text-shadow:0 2px 6px rgba(20,38,17,.9),0 4px 30px rgba(20,38,17,.7);
+}
+.hero-tagline{
+  font-family:var(--sans);font-weight:300;
+  font-size:clamp(.8rem,1.6vw,1rem);
+  letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);
+  margin-top:.9rem;
+  text-shadow:0 1px 3px rgba(20,38,17,.95),0 2px 12px rgba(20,38,17,.8);
+}
+.hero-subtitle{
+  font-family:var(--serif);
+  font-size:clamp(.95rem,1.8vw,1.15rem);
+  color:var(--cream);
+  max-width:620px;
+  margin:1.6rem auto 2.2rem;
+  text-shadow:0 1px 3px rgba(20,38,17,.95),0 2px 16px rgba(20,38,17,.8);
+}
+/* mist particles */
+.mist{position:absolute;border-radius:50%;background:rgba(250,247,242,.5);
+  filter:blur(2px);z-index:3;pointer-events:none;
+  animation:mistRise linear infinite;}
+@keyframes mistRise{
+  0%{transform:translateY(0);opacity:0}
+  12%{opacity:var(--mo,.25)}
+  85%{opacity:var(--mo,.25)}
+  100%{transform:translateY(-46vh);opacity:0}
+}
+
+/* ---------- SECTION 2 — THE LAND ---------- */
+#land{min-height:100vh;display:flex;align-items:center}
+#land .bg-bleed{background-image:url('img/section_land.jpg')}
+#land .veil{
+  position:absolute;inset:0;z-index:2;
+  background:linear-gradient(to right,rgba(250,247,242,.96) 0%,rgba(250,247,242,.92) 42%,rgba(250,247,242,.25) 75%,rgba(250,247,242,.1) 100%);
+}
+.god-rays{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.ray{
+  position:absolute;top:-12%;height:130%;width:90px;
+  background:linear-gradient(to bottom,rgba(201,168,76,.5),rgba(201,168,76,0) 75%);
+  filter:blur(14px);
+  transform-origin:top center;
+  animation:raySway 9s ease-in-out infinite;
+}
+@keyframes raySway{
+  0%,100%{transform:rotate(-3deg)}
+  50%{transform:rotate(3deg)}
+}
+.land-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center;
+}
+.land-copy p{margin-bottom:1.2rem}
+.heritage{
+  border-left:4px solid var(--burgundy);
+  padding-left:1.4rem;margin-top:2.2rem;
+}
+.heritage p{margin-bottom:1rem}
+.land-figure{
+  position:relative;z-index:4;
+  border:1px solid var(--gold);
+  box-shadow:0 24px 60px rgba(45,90,39,.28);
+}
+.land-figure img{width:100%;height:auto}
+.land-figure figcaption{
+  font-family:var(--sans);font-size:.7rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--cream);
+  background:var(--green);padding:.55rem 1rem;text-align:center;
+}
+
+/* ---------- SECTION 3 — THE COFFEE ---------- */
+#coffee{background:var(--cream)}
+#coffee .content{max-width:980px}
+.coffee-head{text-align:center;margin-bottom:2.6rem}
+.coffee-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.coffee-art{position:relative}
+.coffee-art img{
+  width:100%;border:1px solid var(--gold);
+  box-shadow:0 20px 50px rgba(45,90,39,.16);
+}
+/* gold flavor wisps rising from the cherry cluster */
+.wisp{
+  position:absolute;width:2px;border-radius:2px;
+  background:linear-gradient(to top,rgba(201,168,76,0),rgba(201,168,76,.75));
+  animation:wispRise linear infinite;
+  pointer-events:none;
+}
+@keyframes wispRise{
+  0%{transform:translateY(0) scaleY(.4);opacity:0}
+  20%{opacity:.7}
+  100%{transform:translateY(-110px) scaleY(1);opacity:0}
+}
+.sparkle{
+  position:absolute;border-radius:50%;background:var(--gold);
+  animation:orbit linear infinite;pointer-events:none;
+}
+@keyframes orbit{
+  from{transform:rotate(0deg) translateX(var(--r,60px)) rotate(0deg)}
+  to{transform:rotate(360deg) translateX(var(--r,60px)) rotate(-360deg)}
+}
+.coffee-copy p{margin-bottom:1.3rem}
+.spec-table{
+  width:100%;border-collapse:collapse;margin:1.6rem 0 2.2rem;
+}
+.spec-table td{
+  padding:.55rem 0;border-bottom:1px solid rgba(201,168,76,.4);
+  vertical-align:top;
+}
+.spec-table td:first-child{
+  font-family:var(--sans);font-weight:400;font-size:.72rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--green);
+  width:38%;padding-right:1rem;
+}
+.spec-table td:last-child{font-family:var(--serif);color:var(--burgundy)}
+.flavor-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem}
+.flavor-tags span{
+  font-family:var(--sans);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid var(--gold);color:var(--burgundy);
+  padding:.28rem .7rem;border-radius:20px;
+}
+/* Available lots */
+.lots{margin-top:4.5rem}
+.lots h3{
+  text-align:center;font-size:1.15rem;text-transform:uppercase;
+  letter-spacing:.14em;margin-bottom:.4rem;
+}
+.lots .lots-sub{
+  text-align:center;font-size:.9rem;color:var(--burgundy);
+  margin-bottom:2.2rem;font-style:italic;
+}
+.lots-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.lot-card{
+  background:#fff;border:1px solid rgba(201,168,76,.55);
+  padding:1.3rem 1.5rem;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.lot-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(45,90,39,.12)}
+.lot-card h4{
+  font-family:var(--sans);font-weight:400;font-size:.95rem;
+  letter-spacing:.1em;color:var(--green);text-transform:uppercase;
+}
+.lot-card .lot-process{
+  font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--burgundy);margin:.3rem 0 .7rem;
+}
+.lot-card .lot-notes{font-size:.9rem;color:#4a4a3f;font-style:italic}
+.lots-link{display:block;text-align:center;margin-top:2rem;
+  font-family:var(--sans);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+
+/* ---------- SECTION 4 — THE PROCESS ---------- */
+#process{min-height:100vh;display:flex;align-items:center}
+#process .bg-bleed{background-image:url('img/section_process.jpg')}
+#process .vignette{
+  position:absolute;inset:0;z-index:2;
+  background:radial-gradient(ellipse at center,transparent 45%,rgba(45,42,20,.42) 100%);
+}
+.process-head{text-align:center;margin-bottom:3rem;position:relative;z-index:5}
+.process-head h2,.process-head .sub-label{text-shadow:0 1px 14px rgba(250,247,242,.9)}
+.process-head h2{color:var(--green)}
+.steps{
+  position:relative;z-index:5;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;
+}
+.step-card{
+  background:rgba(250,247,242,.85);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  border:1px solid var(--gold);
+  padding:1.4rem 1.2rem;
+  opacity:0;transform:translateY(24px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.step-card.in-view{opacity:1;transform:translateY(0)}
+.step-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--green);color:var(--cream);
+  font-family:var(--sans);font-size:.85rem;font-weight:400;
+  margin-bottom:.7rem;
+}
+.step-card h4{
+  font-family:var(--sans);font-weight:400;font-size:.85rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--green);
+  margin-bottom:.4rem;
+}
+.step-card p{font-size:.88rem;line-height:1.6;color:#3d3d33}
+/* golden path dots */
+.path-dot{
+  position:absolute;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 8px rgba(201,168,76,.8);
+  z-index:4;pointer-events:none;
+  offset-path:path('M 40 560 C 220 500, 260 380, 430 400 C 600 420, 640 300, 820 320 C 1000 340, 1100 460, 1330 430');
+  offset-path:path('M 40 560 C 220 500 260 380 430 400 C 600 420 640 300 820 320 C 1000 340 1100 460 1330 430');
+  animation:pathFlow linear infinite;
+}
+@keyframes pathFlow{
+  0%{offset-distance:0%;opacity:0}
+  8%{opacity:.7}
+  92%{opacity:.7}
+  100%{offset-distance:100%;opacity:0}
+}
+.process-closing{
+  position:relative;z-index:5;
+  text-align:center;margin-top:3.4rem;
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(1.25rem,2.6vw,1.8rem);
+  color:var(--burgundy);
+  text-shadow:0 1px 16px rgba(250,247,242,.95);
+}
+
+/* ---------- SECTION 5 — THE PEOPLE ---------- */
+#people{background:var(--cream);position:relative}
+.dapple{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 22%,rgba(201,168,76,.14),transparent 30%),
+    radial-gradient(circle at 72% 60%,rgba(201,168,76,.1),transparent 32%),
+    radial-gradient(circle at 42% 84%,rgba(201,168,76,.12),transparent 26%);
+  animation:dappleSweep 20s ease-in-out infinite alternate;
+}
+@keyframes dappleSweep{
+  0%{transform:translateX(-3%) ;opacity:.8}
+  100%{transform:translateX(3%);opacity:1}
+}
+.people-grid{
+  position:relative;z-index:5;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center;
+}
+.people-copy p{margin-bottom:1.2rem}
+.people-figure{
+  position:relative;border:1px solid var(--gold);
+  box-shadow:0 24px 60px rgba(45,90,39,.22);
+  transform:scale(1);transition:transform 1.6s ease;
+}
+.people-figure.in-view{transform:scale(1.03)}
+.people-figure img{width:100%;height:auto}
+.butterfly{
+  position:absolute;z-index:6;pointer-events:none;
+  animation:butterBob 5s ease-in-out infinite;
+}
+.butterfly svg{display:block}
+@keyframes butterBob{
+  0%,100%{transform:translateY(0) rotate(-6deg)}
+  50%{transform:translateY(-14px) rotate(6deg)}
+}
+
+/* ---------- SECTION 6 — CONTACT ---------- */
+#contact{min-height:80vh;display:flex;align-items:center}
+#contact .bg-bleed{background-image:url('img/section_contact.jpg')}
+#contact .wash{
+  position:absolute;inset:0;z-index:2;
+  background:linear-gradient(to right,rgba(250,247,242,.97) 0%,rgba(250,247,242,.94) 46%,rgba(250,247,242,.35) 78%,rgba(250,247,242,.2) 100%);
+}
+.lamp-glow{
+  position:absolute;z-index:3;pointer-events:none;
+  right:16%;top:38%;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,.22),transparent 65%);
+  animation:lampPulse 3.2s ease-in-out infinite;
+}
+@keyframes lampPulse{
+  0%,100%{opacity:.7;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.06)}
+}
+.bird{
+  position:absolute;z-index:4;left:6%;top:14%;
+  width:170px;pointer-events:none;
+  transform:translateX(-60px);opacity:0;
+  transition:transform 1.2s cubic-bezier(.22,.8,.3,1),opacity 1.2s ease;
+}
+.bird.in-view{transform:translateX(0);opacity:1}
+.bird .scroll-glow{
+  position:absolute;right:6%;top:26%;width:34px;height:20px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,.85),transparent 70%);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:.6}
+  50%{opacity:.9}
+}
+.contact-grid{
+  position:relative;z-index:5;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;
+}
+.contact-copy h2{margin-bottom:1rem}
+.contact-copy p{margin-bottom:1.4rem;max-width:480px}
+.contact-lines{list-style:none;margin-bottom:2rem}
+.contact-lines li{
+  font-family:var(--sans);font-size:.85rem;letter-spacing:.06em;
+  margin-bottom:.6rem;
+}
+.contact-lines strong{
+  font-weight:400;text-transform:uppercase;letter-spacing:.16em;
+  font-size:.7rem;color:var(--burgundy);display:inline-block;width:110px;
+}
+.contact-card{
+  background:#fff;border:1px solid var(--gold);
+  padding:2rem;text-align:center;
+  box-shadow:0 20px 50px rgba(45,90,39,.14);
+}
+.qr-frame{
+  width:150px;height:150px;margin:0 auto 1rem;
+  border:1px dashed var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--burgundy);
+  text-align:center;padding:.6rem;line-height:1.6;
+}
+.contact-card p{font-size:.85rem;color:#4a4a3f;margin-bottom:1.4rem}
+
+/* ---------- FOOTER ---------- */
+footer{
+  background:var(--cream);
+  border-top:1px solid var(--gold);
+  padding:3rem 1.6rem 2.4rem;
+  text-align:center;
+}
+footer img{height:54px;width:auto;margin:0 auto .9rem}
+footer .foot-tag{
+  font-family:var(--sans);font-size:.72rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--green);margin-bottom:1.4rem;
+}
+footer .socials{display:flex;gap:1.8rem;justify-content:center;margin-bottom:1.4rem}
+footer .socials a{
+  font-family:var(--sans);font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--green);
+}
+footer .socials a:hover{color:var(--burgundy)}
+footer .copy{font-size:.75rem;color:#8a8a7c;font-family:var(--sans);letter-spacing:.08em}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .land-grid,.coffee-grid,.people-grid,.contact-grid{grid-template-columns:1fr;gap:2.2rem}
+  .steps{grid-template-columns:1fr 1fr}
+  .lots-grid{grid-template-columns:1fr}
+  #land .veil{background:linear-gradient(to bottom,rgba(250,247,242,.95) 30%,rgba(250,247,242,.55) 70%,rgba(250,247,242,.3))}
+  #contact .wash{background:linear-gradient(to bottom,rgba(250,247,242,.96) 40%,rgba(250,247,242,.6))}
+  .land-figure{order:2}
+  .people-figure{max-width:440px;margin:0 auto}
+  .bird{width:110px;top:6%}
+}
+@media (max-width:640px){
+  .nav-links{
+    position:fixed;top:52px;right:0;left:0;
+    background:var(--cream);border-bottom:1px solid var(--gold);
+    flex-direction:column;gap:0;padding:0;
+    max-height:0;overflow:hidden;transition:max-height .35s ease;
+  }
+  .nav-links.open{max-height:300px}
+  .nav-links li{border-top:1px solid rgba(201,168,76,.3)}
+  .nav-links a{display:block;padding:.9rem 1.6rem}
+  .hamburger{display:flex}
+  .steps{grid-template-columns:1fr}
+  /* Hero: reframe image to keep logo + valley; anchor text block lower */
+  #hero{min-height:100svh}
+  #hero .bg-sky,#hero .island{background-position:center 28%}
+  .hero-inner{padding-bottom:6vh;justify-content:flex-end}
+  .hero-wordmark{font-size:1.05rem;letter-spacing:.28em}
+  .hero-tagline{font-size:.68rem;letter-spacing:.22em;margin-top:.6rem}
+  .hero-subtitle{font-size:.92rem;max-width:92%;margin:1.1rem auto 1.6rem}
+  .cta{width:auto;max-width:340px;padding:.85rem 2rem;text-align:center}
+  .content{padding:4.5rem 1.3rem}
+}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .section-fade{opacity:1}
+  .step-card{opacity:1;transform:none}
+  .bird{transform:none;opacity:1}
+  .people-figure.in-view{transform:none}
+  .mist,.wisp,.sparkle,.path-dot,.ray,.butterfly,.lamp-glow,.dapple{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav id="nav">
+  <a class="nav-logo" href="#hero">
+    <img src="img/logo_mark.svg" alt="Coorg Cherry logo mark">
+    <span>Coorg Cherry</span>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#land">The Land</a></li>
+    <li><a href="#coffee">The Coffee</a></li>
+    <li><a href="#process">The Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ================= SECTION 1 — HERO ================= -->
+<section id="hero">
+  <div class="bg-sky"></div>
+  <div class="island"></div>
+  <div class="scrim"></div>
+  <div id="mistLayer"></div>
+  <div class="hero-inner">
+    <h1 class="hero-wordmark">COORG CHERRY</h1>
+    <div class="hero-tagline">Direct-Trade Coffee Beans&nbsp;|&nbsp;Coorg, India</div>
+    <p class="hero-subtitle">Single-origin Arabica, hand-picked from rainforest canopies 1,000&ndash;1,750m up in the Western Ghats.</p>
+    <a class="cta" href="#land">Meet the Estate</a>
+  </div>
+</section>
+
+<!-- ================= SECTION 2 — THE LAND ================= -->
+<section id="land" class="section-fade">
+  <div class="bg-bleed" id="landBg"></div>
+  <div class="veil"></div>
+  <div class="god-rays" id="godRays"></div>
+  <div class="content">
+    <div class="land-grid">
+      <div class="land-copy">
+        <h2>The Land</h2>
+        <div class="sub-label">Kodagu, Karnataka — Western Ghats</div>
+        <hr class="gold-rule" style="margin:1.8rem 0">
+        <p>Coorg — known locally as Kodagu — sits high in the Western Ghats, a Geographical Indication&ndash;certified coffee region that grows nearly 40% of India&rsquo;s coffee between 1,000 and 1,750 metres above sea level. This is not a plantation in the industrial sense: coffee grows here under a living rainforest canopy of rosewood, silver oak, jackfruit and wild fig, intercropped with pepper, cardamom, orange and mango — a forest that produces, rather than a field that&rsquo;s managed.</p>
+        <div class="heritage">
+          <p>The Kodava people have farmed this land for generations, and Coorg Cherry&rsquo;s founder is one of them — this is a family relationship with the estate, not a sourcing deal struck at a trade fair. Even our palette carries the inheritance: the burgundy and gold running through this page are drawn from the Kodava chale, the sash worn by Kodava men for centuries before we ever put it on a coffee bag.</p>
+        </div>
+      </div>
+      <figure class="land-figure">
+        <img src="img/section_land.jpg" alt="Rainforest canopy coffee estate in Coorg — shade-grown Arabica under rosewood, silver oak, jackfruit and wild fig">
+        <figcaption>Rainforest Shade-Grown &middot; GI-Certified Origin</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION 3 — THE COFFEE ================= -->
+<section id="coffee" class="section-fade">
+  <div class="content">
+    <div class="coffee-head">
+      <h2>The Coffee</h2>
+      <div class="sub-label" id="featuredTitle">Featured Estate: Chandragiri — Fermented Washed Arabica</div>
+      <hr class="gold-rule">
+    </div>
+    <div class="coffee-grid">
+      <div class="coffee-art" id="coffeeArt">
+        <img src="img/section_coffee.jpg" alt="Chandragiri varietal — hand-drawn coffee cherry cluster with flavor notes" id="coffeeImg">
+      </div>
+      <div class="coffee-copy">
+        <p>One estate, curated pipeline. Currently featuring Chandragiri — a specialty-grade Arabica grown between 1,000 and 1,750 metres in Coorg&rsquo;s rainforest canopy, washed and fermented before a slow sun-dry that lets the cup develop real complexity — cocoa and hazelnut up front, berry and citrus lifting through the middle, molasses and spice in the finish. We don&rsquo;t cup it ourselves and tell you it&rsquo;s exceptional — we let a roaster&rsquo;s own cupping table decide that.</p>
+        <table class="spec-table" id="specTable"></table>
+        <a class="cta" href="#contact">Request a Sample</a>
+      </div>
+    </div>
+
+    <div class="lots">
+      <h3>Available Lots</h3>
+      <p class="lots-sub">Current pipeline — all Coorg origin, all direct-trade, all specialty-grade.</p>
+      <div class="lots-grid" id="lotsGrid"></div>
+      <a class="lots-link" href="#contact">View full pipeline &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION 4 — THE PROCESS ================= -->
+<section id="process" class="section-fade">
+  <div class="bg-bleed"></div>
+  <div class="vignette"></div>
+  <div id="pathDots"></div>
+  <div class="content">
+    <div class="process-head">
+      <h2>The Process</h2>
+      <div class="sub-label">From cherry to green bean, four steps, no middlemen</div>
+    </div>
+    <div class="steps" id="steps"></div>
+    <p class="process-closing">&ldquo;A direct relationship, not a supply chain. Grown by family. Shipped by hand.&rdquo;</p>
+  </div>
+</section>
+
+<!-- ================= SECTION 5 — THE PEOPLE ================= -->
+<section id="people" class="section-fade">
+  <div class="dapple"></div>
+  <div class="content">
+    <div class="people-grid">
+      <div class="people-copy">
+        <h2>The People</h2>
+        <div class="sub-label">No middlemen. Just the estate, the shipment, and us.</div>
+        <hr class="gold-rule" style="margin:1.8rem 0">
+        <p>Coorg Cherry exists because its founder grew up on this land before he ever sold a bag of it. He&rsquo;s Kodava — the same community that has tended these estates for generations — and the relationship behind every shipment is a family one, not a sourcing contract renegotiated each season. Direct trade, for us, means the grower is paid directly and fairly, with no importer&rsquo;s markup sitting between the estate and the roaster who buys from us.</p>
+      </div>
+      <figure class="people-figure" id="peopleFigure">
+        <img src="img/section_people.jpg" alt="Kodava couple in traditional dress — Kupya coat with Chale sash and Pichekathi, Kodava sari — at golden hour">
+      </figure>
+    </div>
+  </div>
+  <div class="butterfly" id="bf1" style="left:4%;top:18%">
+    <svg width="34" height="30" viewBox="0 0 34 30"><path d="M17 15 C10 2 2 4 4 12 C5 18 12 18 17 15 C22 18 29 18 30 12 C32 4 24 2 17 15 Z" fill="#C9A84C" opacity=".8"/></svg>
+  </div>
+  <div class="butterfly" id="bf2" style="right:5%;bottom:14%;animation-delay:1.4s">
+    <svg width="26" height="23" viewBox="0 0 34 30"><path d="M17 15 C10 2 2 4 4 12 C5 18 12 18 17 15 C22 18 29 18 30 12 C32 4 24 2 17 15 Z" fill="#5C1A1B" opacity=".65"/></svg>
+  </div>
+</section>
+
+<!-- ================= SECTION 6 — CONTACT ================= -->
+<section id="contact" class="section-fade">
+  <div class="bg-bleed"></div>
+  <div class="wash"></div>
+  <div class="lamp-glow"></div>
+  <div class="bird" id="bird">
+    <svg viewBox="0 0 170 150">
+      <!-- Brahminy kite perched, scroll in beak -->
+      <path d="M30 128 q -6 -18 6 -26 q -4 -20 12 -30 q 2 -16 20 -20 q 14 -8 26 2 q 14 0 18 12 q 14 6 10 20 q 8 14 -2 26 q 2 16 -10 22 q -4 12 -20 12 q -16 6 -32 -2 q -18 0 -28 -16 Z" fill="#7a4a2b"/>
+      <circle cx="72" cy="42" r="22" fill="#FAF7F2"/>
+      <path d="M88 40 q 16 -2 22 6 q -8 8 -22 4 Z" fill="#C9A84C"/>
+      <circle cx="66" cy="38" r="3.4" fill="#2b2b20"/>
+      <path d="M40 128 q 30 10 62 0 l -4 12 q -28 8 -54 0 Z" fill="#5C1A1B"/>
+      <rect x="104" y="42" width="34" height="12" rx="6" fill="#FAF7F2" stroke="#C9A84C" stroke-width="2" transform="rotate(8 104 42)"/>
+    </svg>
+    <div class="scroll-glow"></div>
+  </div>
+  <div class="content">
+    <div class="contact-grid">
+      <div class="contact-copy">
+        <h2>Bring Coorg Cherry to Your Roastery</h2>
+        <p>We&rsquo;re in Hong Kong, September 1&ndash;3. Come cup with us. Roasters and caf&eacute; buyers: ask us about green bean samples and a direct estate relationship, no trading house in between.</p>
+        <ul class="contact-lines">
+          <li><strong>Email</strong> <a href="mailto:sajanb0526@gmail.com">sajanb0526@gmail.com</a></li>
+          <li><strong>WhatsApp</strong> <a href="https://wa.me/85296163523" target="_blank" rel="noopener">+852 9616 3523</a></li>
+        </ul>
+        <a class="cta" href="mailto:sajanb0526@gmail.com?subject=Coorg%20Cherry%20—%20Sample%20Enquiry">Send Enquiry</a>
+      </div>
+      <div class="contact-card">
+        <div class="qr-frame">Scan for<br>Sample Request<br>(link coming soon)</div>
+        <p>Roasters and caf&eacute; buyers — scan to request green bean samples and a direct estate relationship.</p>
+        <img src="img/coorg_cherry_booth_canonical.jpg" alt="Coorg Cherry event booth — Hong Kong, September 1–3" style="border:1px solid var(--gold)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <img src="img/logo_mark.svg" alt="Coorg Cherry logo mark">
+  <div class="foot-tag">Direct-Trade Coffee Beans&nbsp;|&nbsp;Coorg, India</div>
+  <div class="socials">
+    <a href="#" rel="noopener">Instagram</a>
+    <a href="#" rel="noopener">LinkedIn</a>
+    <a href="https://wa.me/85296163523" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <div class="copy">&copy; Bits2Qbits 2026</div>
+</footer>
+
+<script>
+/* ============================================================
+   MODULAR DATA BLOCK — update estate/lots here, never the HTML
+   ============================================================ */
+const featuredEstate = {
+  estate_name: "Chandragiri",
+  varietal: "Chandragiri",
+  process: "Fermented Washed Arabica",
+  altitude: "1,000–1,750m",
+  origin: "Coorg, Karnataka, India",
+  grade: "Specialty-grade Arabica",
+  flavor_notes: ["cocoa", "hazelnut", "berry", "citrus", "molasses", "spice"]
+};
+
+const availableLots = [
+  { varietal: "Chandragiri", process: "Whiskey Barrel Aged",   notes: "oak, vanilla, cocoa, caramel" },
+  { varietal: "SLN-795",     process: "Sugar Ferment Naturals", notes: "brown sugar, toffee, plum" },
+  { varietal: "CXR Robusta", process: "Honey Sun Dried",        notes: "honey, cocoa, hazelnut" },
+  { varietal: "Mix",         process: "Wine Fermented",         notes: "red wine, blackberry, cherry" },
+  { varietal: "CXR Robusta", process: "Sugar Ferment Naturals", notes: "jaggery, cocoa, roasted nuts" },
+  { varietal: "Mix",         process: "Cinnamon Fermented",     notes: "cinnamon, baked apple, clove" }
+];
+
+const processSteps = [
+  { label: "Hand-Picked",        copy: "Only ripe cherries, selected by hand at harvest — never stripped from the branch." },
+  { label: "Washed & Fermented", copy: "A controlled fermentation, then washed clean with spring water before drying begins." },
+  { label: "Sun-Dried",          copy: "Slow sun-dried on raised African beds, turned by hand until the parchment is ready." },
+  { label: "Shipped Direct",     copy: "Green beans travel estate-to-Hong Kong — no trading house in between." }
+];
+
+/* ---------- Render: spec table ---------- */
+(function renderSpec(){
+  const rows = [
+    ["Varietal", featuredEstate.varietal],
+    ["Origin", featuredEstate.origin],
+    ["Altitude", featuredEstate.altitude],
+    ["Process", "Washed, fermented, sun-dried"],
+    ["Grade", featuredEstate.grade],
+    ["Flavor notes", '<div class="flavor-tags">' + featuredEstate.flavor_notes.map(n => "<span>"+n+"</span>").join("") + "</div>"]
+  ];
+  document.getElementById("specTable").innerHTML =
+    rows.map(r => "<tr><td>"+r[0]+"</td><td>"+r[1]+"</td></tr>").join("");
+})();
+
+/* ---------- Render: available lots ---------- */
+(function renderLots(){
+  document.getElementById("lotsGrid").innerHTML = availableLots.map(l =>
+    '<div class="lot-card"><h4>'+l.varietal+'</h4>'+
+    '<div class="lot-process">'+l.process+'</div>'+
+    '<div class="lot-notes">'+l.notes+'</div></div>'
+  ).join("");
+})();
+
+/* ---------- Render: process steps ---------- */
+(function renderSteps(){
+  document.getElementById("steps").innerHTML = processSteps.map((s,i) =>
+    '<div class="step-card"><span class="step-num">'+(i+1)+'</span>'+
+    '<h4>'+s.label+'</h4><p>'+s.copy+'</p></div>'
+  ).join("");
+})();
+
+/* ---------- Reduced motion gate ---------- */
+const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+/* Snapshot mode (?snap & ?snap=<section>): static captures for QA */
+const snapParam = new URLSearchParams(location.search).get("snap");
+if(snapParam !== null){
+  document.querySelectorAll(".section-fade").forEach(s => s.classList.add("in-view"));
+  document.querySelectorAll(".step-card").forEach(c => c.classList.add("in-view"));
+  const b = document.getElementById("bird"); if(b) b.classList.add("in-view");
+  const pf = document.getElementById("peopleFigure"); if(pf) pf.classList.add("in-view");
+  if(snapParam){
+    window.addEventListener("load", () => {
+      const t = document.getElementById(snapParam);
+      if(t){ const y = t.getBoundingClientRect().top + window.scrollY - 60; window.scrollTo(0, y); }
+    });
+  }
+}
+
+/* ---------- Hero mist particles ---------- */
+if(!reduced){
+  const mist = document.getElementById("mistLayer");
+  for(let i=0;i<10;i++){
+    const m = document.createElement("div");
+    m.className = "mist";
+    const size = 4 + Math.random()*4;
+    m.style.width = m.style.height = size + "px";
+    m.style.left = (5 + Math.random()*90) + "%";
+    m.style.bottom = (Math.random()*30) + "%";
+    m.style.setProperty("--mo", (0.15 + Math.random()*0.15).toFixed(2));
+    m.style.animationDuration = (10 + Math.random()*8) + "s";
+    m.style.animationDelay = (-Math.random()*14) + "s";
+    mist.appendChild(m);
+  }
+}
+
+/* ---------- God rays (Section 2) ---------- */
+if(!reduced){
+  const rays = document.getElementById("godRays");
+  const rayX = [52, 64, 76, 88];
+  rayX.forEach((x,i) => {
+    const r = document.createElement("div");
+    r.className = "ray";
+    r.style.left = x + "%";
+    r.style.opacity = (0.4 + Math.random()*0.2).toFixed(2);
+    r.style.animationDuration = (8 + i*1.2) + "s";
+    r.style.animationDelay = (-i*2) + "s";
+    rays.appendChild(r);
+  });
+}
+
+/* ---------- Flavor wisps + sparkles (Section 3) ---------- */
+if(!reduced){
+  const art = document.getElementById("coffeeArt");
+  for(let i=0;i<5;i++){
+    const w = document.createElement("div");
+    w.className = "wisp";
+    w.style.height = (80 + Math.random()*40) + "px";
+    w.style.left = (38 + Math.random()*24) + "%";
+    w.style.top = (38 + Math.random()*10) + "%";
+    w.style.animationDuration = (12 + Math.random()*6) + "s";
+    w.style.animationDelay = (-i*2.6) + "s";
+    art.appendChild(w);
+  }
+  for(let i=0;i<7;i++){
+    const s = document.createElement("div");
+    s.className = "sparkle";
+    const size = 3 + Math.random()*2;
+    s.style.width = s.style.height = size + "px";
+    s.style.left = "50%"; s.style.top = "34%";
+    s.style.setProperty("--r", (52 + Math.random()*36) + "px");
+    s.style.animationDuration = (9 + Math.random()*7) + "s";
+    s.style.animationDelay = (-Math.random()*9) + "s";
+    s.style.opacity = (0.4 + Math.random()*0.4).toFixed(2);
+    art.appendChild(s);
+  }
+}
+
+/* ---------- Golden path dots (Section 4) ---------- */
+if(!reduced){
+  const dotsWrap = document.getElementById("pathDots");
+  const section = document.getElementById("process");
+  // scale the offset-path to the rendered section size
+  const supportsOffsetPath = CSS.supports("offset-path", "path('M 0 0 L 1 1')");
+  for(let i=0;i<12;i++){
+    const d = document.createElement("div");
+    d.className = "path-dot";
+    const size = 4 + Math.random()*2;
+    d.style.width = d.style.height = size + "px";
+    d.style.animationDuration = (8 + Math.random()*7) + "s";
+    d.style.animationDelay = (-Math.random()*12) + "s";
+    if(!supportsOffsetPath){
+      // fallback: gentle left-to-right drift along the lower half
+      d.style.offsetPath = "none";
+      d.style.left = "0"; d.style.top = (52 + Math.random()*26) + "%";
+      d.style.animation = "none";
+      d.animate(
+        [{transform:"translateX(0)",opacity:0},
+         {transform:"translateX(8vw)",opacity:.7,offset:.08},
+         {transform:"translateX(92vw)",opacity:.7,offset:.92},
+         {transform:"translateX(100vw)",opacity:0}],
+        {duration:(8+Math.random()*7)*1000,iterations:Infinity,delay:-Math.random()*12000}
+      );
+    }
+    dotsWrap.appendChild(d);
+  }
+}
+
+/* ---------- Intersection Observers ---------- */
+const fadeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in-view"); fadeObs.unobserve(e.target); } });
+}, {threshold:.12});
+document.querySelectorAll(".section-fade").forEach(s => fadeObs.observe(s));
+
+const stepObs = new IntersectionObserver(entries => {
+  entries.forEach((e) => {
+    if(e.isIntersecting){
+      const cards = [...document.querySelectorAll(".step-card")];
+      cards.forEach((c,i) => setTimeout(() => c.classList.add("in-view"), i*160));
+      stepObs.disconnect();
+    }
+  });
+}, {threshold:.25});
+stepObs.observe(document.getElementById("steps"));
+
+const birdObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ document.getElementById("bird").classList.add("in-view"); birdObs.disconnect(); } });
+}, {threshold:.3});
+birdObs.observe(document.getElementById("contact"));
+
+const peopleObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in-view"); peopleObs.unobserve(e.target); } });
+}, {threshold:.3});
+peopleObs.observe(document.getElementById("peopleFigure"));
+
+/* ---------- Land parallax scale 1.0 -> 1.06 ---------- */
+if(!reduced){
+  const landBg = document.getElementById("landBg");
+  const land = document.getElementById("land");
+  let ticking = false;
+  function parallax(){
+    const r = land.getBoundingClientRect();
+    const vh = window.innerHeight;
+    if(r.bottom > 0 && r.top < vh){
+      const progress = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+      landBg.style.transform = "scale(" + (1 + progress*0.06).toFixed(4) + ")";
+    }
+    ticking = false;
+  }
+  window.addEventListener("scroll", () => {
+    if(!ticking){ requestAnimationFrame(parallax); ticking = true; }
+  }, {passive:true});
+}
+
+/* ---------- Nav hide-on-scroll-down ---------- */
+(function(){
+  const nav = document.getElementById("nav");
+  let lastY = window.scrollY;
+  window.addEventListener("scroll", () => {
+    const y = window.scrollY;
+    if(y > 140 && y > lastY){ nav.classList.add("hidden"); }
+    else { nav.classList.remove("hidden"); }
+    lastY = y;
+  }, {passive:true});
+})();
+
+/* ---------- Hamburger ---------- */
+document.getElementById("hamburger").addEventListener("click", () => {
+  document.getElementById("navLinks").classList.toggle("open");
+});
+document.querySelectorAll("#navLinks a").forEach(a =>
+  a.addEventListener("click", () => document.getElementById("navLinks").classList.remove("open"))
+);
+</script>
+</body>
+</html>

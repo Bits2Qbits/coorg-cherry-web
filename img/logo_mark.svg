@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Wreath: coffee branch forming a circle -->
+  <path d="M100 18 C 55 18, 22 55, 22 100 C 22 145, 55 182, 100 182 C 138 182, 170 156, 177 120"
+        stroke="#2D5A27" stroke-width="6" stroke-linecap="round"/>
+  <!-- Leaves on wreath -->
+  <g stroke="#2D5A27" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M40 60 q -14 -10 -24 -4 q 10 12 24 4 Z"/>
+    <path d="M30 96 q -16 -4 -24 4 q 12 8 24 -4 Z"/>
+    <path d="M40 134 q -14 8 -16 20 q 14 -2 16 -20 Z"/>
+    <path d="M62 162 q -8 14 -4 26 q 12 -8 4 -26 Z"/>
+    <path d="M150 158 q 10 12 22 12 q -2 -16 -22 -12 Z"/>
+    <path d="M170 120 q 16 2 24 10 q -10 10 -24 -10 Z"/>
+    <path d="M60 34 q -12 -12 -10 -24 q 14 4 10 24 Z"/>
+  </g>
+  <!-- Mountains -->
+  <path d="M58 118 L86 78 L104 104 L122 72 L148 118 Z"
+        stroke="#2D5A27" stroke-width="5" fill="#FAF7F2" stroke-linejoin="round"/>
+  <!-- Cherries -->
+  <circle cx="82" cy="140" r="11" fill="#5C1A1B"/>
+  <circle cx="106" cy="148" r="11" fill="#5C1A1B"/>
+  <circle cx="96" cy="126" r="11" fill="#5C1A1B"/>
+  <path d="M96 126 q 4 -12 14 -16" stroke="#2D5A27" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <circle cx="79" cy="136" r="3" fill="#FAF7F2" opacity="0.55"/>
+  <circle cx="103" cy="144" r="3" fill="#FAF7F2" opacity="0.55"/>
+  <circle cx="93" cy="122" r="3" fill="#FAF7F2" opacity="0.55"/>
+</svg>
