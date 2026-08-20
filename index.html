@@ -489,6 +489,16 @@ footer .copy{font-size:.75rem;color:#8a8a7c;font-family:var(--sans);letter-spaci
   .bird{width:110px;top:6%}
 }
 @media (max-width:640px){
+  /* === MOBILE: full watercolor images === */
+  #hero .bg-sky,#hero .island{background-size:cover;background-position:50% 25%}
+  #land .bg-bleed,#process .bg-bleed,#contact .bg-bleed{
+    background-size:contain;background-repeat:no-repeat;
+    background-position:center top;
+  }
+  #land{min-height:auto}
+  #land .veil{background:linear-gradient(to bottom,rgba(250,247,242,.95) 30%,rgba(250,247,242,.55) 70%,rgba(250,247,242,.3))}
+  .nav-logo span{display:none}
+  .nav-logo img{height:30px}
   .nav-links{
     position:fixed;top:52px;right:0;left:0;
     background:var(--cream);border-bottom:1px solid var(--gold);
@@ -500,9 +510,7 @@ footer .copy{font-size:.75rem;color:#8a8a7c;font-family:var(--sans);letter-spaci
   .nav-links a{display:block;padding:.9rem 1.6rem}
   .hamburger{display:flex}
   .steps{grid-template-columns:1fr}
-  /* Hero: reframe image to keep logo + valley; anchor text block lower */
   #hero{min-height:100svh}
-  #hero .bg-sky,#hero .island{background-position:center 28%}
   .hero-inner{padding-bottom:6vh;justify-content:flex-end}
   .hero-wordmark{font-size:1.05rem;letter-spacing:.28em}
   .hero-tagline{font-size:.68rem;letter-spacing:.22em;margin-top:.6rem}
@@ -528,7 +536,7 @@ footer .copy{font-size:.75rem;color:#8a8a7c;font-family:var(--sans);letter-spaci
 <!-- ================= NAV ================= -->
 <nav id="nav">
   <a class="nav-logo" href="#hero">
-    <img src="img/logo_mark.svg" alt="Coorg Cherry logo mark">
+    <img src="img/coorg_cherry_logo_canonical.jpg" alt="Coorg Cherry">
     <span>Coorg Cherry</span>
   </a>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -686,7 +694,7 @@ footer .copy{font-size:.75rem;color:#8a8a7c;font-family:var(--sans);letter-spaci
 
 <!-- ================= FOOTER ================= -->
 <footer>
-  <img src="img/logo_mark.svg" alt="Coorg Cherry logo mark">
+  <img src="img/coorg_cherry_logo_canonical.jpg" alt="Coorg Cherry">
   <div class="foot-tag">Direct-Trade Coffee Beans&nbsp;|&nbsp;Coorg, India</div>
   <div class="socials">
     <a href="#" rel="noopener">Instagram</a>
