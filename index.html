@@ -65,7 +65,7 @@ nav{
 }
 nav.hidden{transform:translateY(-100%)}
 .nav-logo{display:flex;align-items:center;gap:.6rem}
-.nav-logo img{height:38px;width:auto}
+.nav-logo img{height:44px;width:auto}
 .nav-logo span{
   font-family:var(--sans);font-weight:400;
   letter-spacing:.18em;font-size:.8rem;color:var(--green);
@@ -128,12 +128,13 @@ section{position:relative;overflow:hidden}
   /* show only the island (lower ~60% of the frame) */
   -webkit-mask-image:linear-gradient(to bottom,transparent 32%,#000 46%);
   mask-image:linear-gradient(to bottom,transparent 32%,#000 46%);
-  animation:islandBob 4.5s ease-in-out infinite;
+  /* subtle breath — slow continuous zoom, no bounce */
+  animation:islandBreath 8s ease-in-out infinite;
   will-change:transform;
 }
-@keyframes islandBob{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
+@keyframes islandBreath{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.03)}
 }
 #hero .scrim{
   position:absolute;left:0;right:0;top:0;bottom:0;
@@ -399,7 +400,7 @@ section{position:relative;overflow:hidden}
 #contact .bg-bleed{background-image:url('img/section_contact.jpg')}
 #contact .wash{
   position:absolute;inset:0;z-index:2;
-  background:linear-gradient(to right,rgba(250,247,242,.97) 0%,rgba(250,247,242,.94) 46%,rgba(250,247,242,.35) 78%,rgba(250,247,242,.2) 100%);
+  background:linear-gradient(to right,rgba(250,247,242,.85) 0%,rgba(250,247,242,.7) 36%,rgba(250,247,242,.2) 68%,rgba(250,247,242,0) 100%);
 }
 .lamp-glow{
   position:absolute;z-index:3;pointer-events:none;
@@ -491,9 +492,13 @@ footer .copy{font-size:.75rem;color:#8a8a7c;font-family:var(--sans);letter-spaci
 @media (max-width:640px){
   /* === MOBILE: images fill screen, text overlaid === */
   #hero .bg-sky,#hero .island{
-    background-size:cover;
-    background-position:50% 38%;
+    background-size:100% auto;
+    background-position:top center;
+    background-repeat:no-repeat;
   }
+  #hero{min-height:auto;height:auto}
+  #hero .scrim{background:linear-gradient(to bottom,rgba(28,52,24,0) 40%,rgba(28,52,24,.08) 65%,rgba(24,44,20,.25) 100%)}
+  #hero .hero-inner{position:absolute;bottom:0;left:0;right:0;padding-bottom:5vh}
   #process .bg-bleed,#contact .bg-bleed{
     background-size:cover;
     background-position:center;
@@ -518,13 +523,10 @@ footer .copy{font-size:.75rem;color:#8a8a7c;font-family:var(--sans);letter-spaci
   .nav-links a{display:block;padding:.9rem 1.6rem}
   .hamburger{display:flex}
   .steps{grid-template-columns:1fr}
-  #hero{min-height:auto;height:100svh}
-  #hero .scrim{background:linear-gradient(to bottom,rgba(28,52,24,0) 25%,rgba(28,52,24,.12) 50%,rgba(24,44,20,.35) 100%)}
   #process .vignette{background:radial-gradient(ellipse at center,transparent 50%,rgba(45,42,20,.28) 100%)}
-  #contact .wash{background:linear-gradient(to bottom,rgba(250,247,242,.88) 40%,rgba(250,247,242,.5))}
+  #contact .wash{background:linear-gradient(to bottom,rgba(250,247,242,.65) 30%,rgba(250,247,242,.2) 70%,transparent)}
   #process,#contact{min-height:auto;display:block}
   #process .content,#contact .content{padding:1.8rem 1.3rem 4.5rem}
-  .hero-inner{padding-bottom:6vh;justify-content:flex-end}
   .hero-wordmark{font-size:1.05rem;letter-spacing:.28em}
   .hero-tagline{font-size:.68rem;letter-spacing:.22em;margin-top:.6rem}
   .hero-subtitle{font-size:.92rem;max-width:92%;margin:1.1rem auto 1.6rem}
@@ -549,7 +551,7 @@ footer .copy{font-size:.75rem;color:#8a8a7c;font-family:var(--sans);letter-spaci
 <!-- ================= NAV ================= -->
 <nav id="nav">
   <a class="nav-logo" href="#hero">
-    <img src="img/coorg_cherry_logo_canonical.jpg" alt="Coorg Cherry">
+    <img src="img/coorg_cherry_logo_canonical.jpg?v=3" alt="Coorg Cherry">
     <span>Coorg Cherry</span>
   </a>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -707,7 +709,7 @@ footer .copy{font-size:.75rem;color:#8a8a7c;font-family:var(--sans);letter-spaci
 
 <!-- ================= FOOTER ================= -->
 <footer>
-  <img src="img/coorg_cherry_logo_canonical.jpg" alt="Coorg Cherry">
+  <img src="img/coorg_cherry_logo_canonical.jpg?v=3" alt="Coorg Cherry">
   <div class="foot-tag">Direct-Trade Coffee Beans&nbsp;|&nbsp;Coorg, India</div>
   <div class="socials">
     <a href="#" rel="noopener">Instagram</a>
