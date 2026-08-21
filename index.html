@@ -70,69 +70,17 @@ section{position:relative}
 .gold-line{width:100px;height:1px;background:var(--gold);margin:1.5rem 0;border:none}
 
 /* ── HERO ── */
-.hero{
-  position:relative;width:100%;
-  background:var(--cream);
-  overflow:hidden;
-}
-.hero video,.hero .poster{
-  width:100%;height:auto;display:block;
-  object-fit:contain;
-}
+.hero{position:relative;width:100%;background:var(--cream);overflow:hidden}
+.hero video,.hero .poster{width:100%;height:auto;display:block;object-fit:contain}
 @media(max-width:640px){
-  .hero video,.hero .poster{
-    /* full island visible, no crop */
-    object-fit:contain;
-    object-position:center top;
-    max-height:none;
-  }
+  .hero video,.hero .poster{object-fit:contain;object-position:center top;max-height:none}
 }
-.hero .hero-text{
-  text-align:center;padding:2rem 1.5rem 3rem;
-  background:linear-gradient(to bottom,var(--cream) 0%,#f5f0e5 100%);
-}
-.hero .hero-text h1{
-  font-size:clamp(1.3rem,4vw,2.2rem);
-  letter-spacing:.3em;margin:0 0 .3rem;
-  color:var(--green);
-}
-.hero .hero-text .tag{
-  font-family:var(--sans);font-weight:300;font-size:.75rem;
-  letter-spacing:.25em;text-transform:uppercase;color:var(--burgundy);
-  margin-bottom:1.2rem;
-}
-.hero .hero-text p{
-  max-width:600px;margin:0 auto 1.5rem;font-size:.95rem;color:#4a5a3a;
-}
-
-/* ── SKY BIRDS (emoji) ── */
-.sky-birds{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:5;overflow:hidden}
-.bird-emoji{
-  position:absolute;font-size:28px;
-  animation:birdFlyAcross linear infinite;
-}
-@keyframes birdFlyAcross{
-  0%{left:-60px;transform:translateY(0)}
-  30%{transform:translateY(-20px)}
-  60%{transform:translateY(8px)}
-  100%{left:110%;transform:translateY(-5px)}
-}
-
-/* ── FLOATING EMOJI (cherry blossoms) ── */
-.particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:4;overflow:hidden}
-.petal{
-  position:absolute;font-size:16px;
-  animation:petalFloat linear infinite;
-}
-@keyframes petalFloat{
-  0%{transform:translateY(0) translateX(0);opacity:0}
-  10%{opacity:.8}
-  90%{opacity:.6}
-  100%{transform:translateY(-100vh) translateX(60px);opacity:0}
-}
+.hero .hero-text{text-align:center;padding:2rem 1.5rem 3rem;background:linear-gradient(to bottom,var(--cream) 0%,#f5f0e5 100%)}
+.hero .hero-text h1{font-size:clamp(1.3rem,4vw,2.2rem);letter-spacing:.3em;margin:0 0 .3rem;color:var(--green)}
+.hero .hero-text .tag{font-family:var(--sans);font-weight:300;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--burgundy);margin-bottom:1.2rem}
+.hero .hero-text p{max-width:600px;margin:0 auto 1.5rem;font-size:.95rem;color:#4a5a3a}
 
 /* ── IMAGE SECTION ── */
-.img-section img{width:100%;height:auto;display:block}
 
 /* ── SECTION 2 — THE LAND ── */
 .land-wrap{position:relative;background:var(--cream)}
@@ -147,19 +95,6 @@ section{position:relative}
   padding-left:1.3rem;margin-top:1.5rem;
 }
 .land-wrap .heritage p{margin:0 0 .8rem;color:#3d4d2d}
-
-/* ── BUTTERFLIES (emoji) ── */
-.butterfly-wrap{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:3;overflow:hidden}
-.bfl{
-  position:absolute;font-size:24px;
-  animation:bflyFloat ease-in-out infinite;
-}
-@keyframes bflyFloat{
-  0%,100%{transform:translate(0,0)}
-  25%{transform:translate(80px,-40px)}
-  50%{transform:translate(150px,-10px)}
-  75%{transform:translate(80px,-50px)}
-}
 
 /* ── SECTION 3 — THE COFFEE ── */
 .coffee-section{background:var(--cream)}
@@ -245,27 +180,6 @@ section{position:relative}
 }
 .booth-img{border:1px solid var(--gold);margin-top:1rem}
 
-/* ── WALKING CREATURES (emoji) ── */
-.dog-runner{
-  position:fixed;bottom:18px;left:-80px;z-index:999;
-  pointer-events:none;font-size:30px;
-  animation:dogWalk 18s linear infinite;
-}
-@keyframes dogWalk{
-  0%{left:-80px}
-  100%{left:110%}
-}
-/* second creature: rabbit in opposite direction */
-.rabbit-runner{
-  position:fixed;bottom:55px;right:-80px;z-index:999;
-  pointer-events:none;font-size:26px;
-  animation:rabbitWalk 26s linear infinite;
-}
-@keyframes rabbitWalk{
-  0%{right:-80px}
-  100%{right:110%}
-}
-
 /* ── FOOTER ── */
 footer{
   text-align:center;padding:3rem 1.5rem;
@@ -282,10 +196,6 @@ footer .socials a{font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;t
 footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
 
 /* ── REDUCED MOTION ── */
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .dog-runner,.rabbit-runner{display:none}
-}
 
 /* ── MOBILE ── */
 @media(max-width:900px){
@@ -308,8 +218,6 @@ footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
   .section-inner{padding:3rem 1rem}
   .land-wrap .land-content{padding:1.5rem 1rem 3rem}
   .people-grid,.contact-grid{padding:1.5rem 1rem 3rem}
-  .dog-runner{font-size:24px;bottom:12px}
-  .rabbit-runner{font-size:20px;bottom:44px}
 }
 </style>
 </head>
@@ -336,8 +244,6 @@ footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
   <video autoplay muted loop playsinline poster="img/section_hero.jpg" preload="auto">
     <source src="img/hero_video.mp4" type="video/mp4">
   </video>
-  <div class="sky-birds" id="skyBirds"></div>
-  <div class="particles" id="heroParticles"></div>
   <div class="hero-text">
     <h1>COORG CHERRY</h1>
     <div class="tag">Direct-Trade Coffee Beans · Coorg, India</div>
@@ -349,7 +255,6 @@ footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
 <!-- ═══════════════ THE LAND ═══════════════ -->
 <section id="land" class="land-wrap">
   <img class="land-img" src="img/section_land.jpg" alt="Coorg rainforest shade-grown coffee estate">
-  <div class="butterfly-wrap" id="landButterflies"></div>
   <div class="land-content">
     <div class="inner">
       <h2>The Land</h2>
@@ -404,7 +309,6 @@ footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
     </div>
     <img src="img/section_people.jpg" alt="Kodava couple in traditional dress at golden hour">
   </div>
-  <div class="butterfly-wrap" id="peopleButterflies"></div>
 </section>
 
 <!-- ═══════════════ CONTACT ═══════════════ -->
@@ -439,10 +343,6 @@ footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
   </div>
   <div class="copy">&copy; Bits2Qbits 2026</div>
 </footer>
-
-<!-- ═══════════════ WALKING DOG ═══════════════ -->
-<div class="dog-runner">🐕</div>
-<div class="rabbit-runner">🐇</div>
 
 <script>
 /* ═══════════════ MODULAR DATA ═══════════════ */
@@ -488,51 +388,6 @@ document.getElementById("lotsGrid").innerHTML=availableLots.map(l=>
 document.getElementById("steps").innerHTML=processSteps.map((s,i)=>
   '<div class="step-card"><span class="step-num">'+(i+1)+'</span><h4>'+s.label+'</h4><p>'+s.copy+'</p></div>'
 ).join("");
-
-/* ═══════════════ SKY BIRDS (emoji) ═══════════════ */
-const birdEmojis=["🕊️","🦅","🐦","🕊️","🦜","🕊️"];
-const birdTops=[10,18,6,24,14,20];
-birdTops.forEach((top,i)=>{
-  const el=document.createElement("span");
-  el.className="bird-emoji";
-  el.textContent=birdEmojis[i];
-  el.style.top=top+"%";
-  el.style.animationDuration=(12+Math.random()*10)+"s";
-  el.style.animationDelay=(-Math.random()*16)+"s";
-  document.getElementById("skyBirds").appendChild(el);
-});
-
-/* ═══════════════ FLOATING BLOSSOMS (emoji) ═══════════════ */
-const blossomEmojis=["🌸","🍂","🌸","🌺","🌸","🍃"];
-for(let i=0;i<15;i++){
-  const p=document.createElement("span");
-  p.className="petal";
-  p.textContent=blossomEmojis[i%blossomEmojis.length];
-  p.style.left=(Math.random()*100)+"%";
-  p.style.fontSize=(14+Math.random()*10)+"px";
-  p.style.top=(60+Math.random()*40)+"%";
-  p.style.animationDuration=(8+Math.random()*14)+"s";
-  p.style.animationDelay=(-Math.random()*16)+"s";
-  document.getElementById("heroParticles").appendChild(p);
-}
-
-/* ═══════════════ BUTTERFLIES (emoji) ═══════════════ */
-const bflEmojis=["🦋","🦋","🦋"];
-function spawnButterflies(targetId,count){
-  const wrap=document.getElementById(targetId);
-  for(let i=0;i<count;i++){
-    const b=document.createElement("span");
-    b.textContent=bflEmojis[i%bflEmojis.length];
-    b.className="bfl";
-    b.style.left=(8+Math.random()*84)+"%";b.style.top=(8+Math.random()*70)+"%";
-    b.style.fontSize=(22+Math.random()*10)+"px";
-    b.style.animationDuration=(8+Math.random()*10)+"s";
-    b.style.animationDelay=(-Math.random()*12)+"s";
-    wrap.appendChild(b);
-  }
-}
-spawnButterflies("landButterflies",5);
-spawnButterflies("peopleButterflies",3);
 
 /* ═══════════════ HAMBURGER ═══════════════ */
 document.getElementById("hamburger").addEventListener("click",()=>{
