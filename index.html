@@ -321,6 +321,10 @@ section{position:relative;overflow:hidden}
   opacity:0;transform:translateY(24px);
   transition:opacity .7s ease,transform .7s ease;
 }
+/* mobile: more transparent cards so art shows through */
+@media(max-width:640px){
+  .step-card{background:rgba(250,247,242,.55);backdrop-filter:blur(2px)}
+}
 .step-card.in-view{opacity:1;transform:translateY(0)}
 .step-num{
   display:inline-flex;align-items:center;justify-content:center;
@@ -483,7 +487,7 @@ footer .copy{font-size:.75rem;color:#8a8a7c;font-family:var(--sans);letter-spaci
   .land-grid,.coffee-grid,.people-grid,.contact-grid{grid-template-columns:1fr;gap:2.2rem}
   .steps{grid-template-columns:1fr 1fr}
   .lots-grid{grid-template-columns:1fr}
-  #land .veil{background:linear-gradient(to bottom,rgba(250,247,242,.95) 30%,rgba(250,247,242,.55) 70%,rgba(250,247,242,.3))}
+  #land .veil{background:linear-gradient(to bottom,rgba(250,247,242,.7) 20%,rgba(250,247,242,.3) 60%,rgba(250,247,242,.05) 100%)}
   #contact .wash{background:linear-gradient(to bottom,rgba(250,247,242,.96) 40%,rgba(250,247,242,.6))}
   .land-figure{order:2}
   .people-figure{max-width:440px;margin:0 auto}
@@ -529,7 +533,7 @@ footer .copy{font-size:.75rem;color:#8a8a7c;font-family:var(--sans);letter-spaci
     background-position:top center;
   }
   #land{min-height:auto}
-  #land .veil{background:linear-gradient(to bottom,rgba(250,247,242,.95) 30%,rgba(250,247,242,.55) 70%,rgba(250,247,242,.3))}
+  #land .veil{background:linear-gradient(to bottom,rgba(250,247,242,.7) 20%,rgba(250,247,242,.3) 60%,rgba(250,247,242,.05) 100%)}
   .nav-logo span{display:none}
   .nav-logo img{height:30px}
   .nav-links{
