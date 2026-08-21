@@ -494,39 +494,53 @@ footer .copy{font-size:.75rem;color:#8a8a7c;font-family:var(--sans);letter-spaci
   .bird{width:110px;top:6%}
 }
 @media (max-width:640px){
-  /* ---------- HERO: remove island/sky split on mobile — just show the art ---------- */
+  /* ---------- HERO mobile: image dictates height ---------- */
+  #hero{height:auto;min-height:auto;position:relative}
   #hero .bg-sky{
+    position:relative;inset:auto;
+    width:100%;
+    padding-bottom:56.25%; /* 16:9 aspect from image */
     background-size:100% auto;
     background-position:top center;
     background-repeat:no-repeat;
   }
   #hero .island{display:none}
-  #hero{height:auto;min-height:auto}
-  #hero .scrim{background:linear-gradient(to bottom,rgba(28,52,24,0) 60%,rgba(28,52,24,.12) 85%,rgba(24,44,20,.28) 100%)}
+  #hero .scrim{
+    top:0;bottom:0;left:0;right:0;
+    background:linear-gradient(to bottom,rgba(28,52,24,0) 60%,rgba(28,52,24,.12) 85%,rgba(24,44,20,.28) 100%);
+  }
   #hero .hero-inner{position:absolute;bottom:0;left:0;right:0;padding-bottom:5vh}
 
-  /* ---------- PROCESS: no vignette, image fully visible ---------- */
-  #process{min-height:auto;display:block}
+  /* ---------- PROCESS: image visible, cards transparent ---------- */
+  #process{min-height:auto;display:block;position:relative}
   #process .bg-bleed{
+    position:relative;inset:auto;
+    width:100%;
+    padding-bottom:56.25%;
     background-size:100% auto;
     background-position:top center;
     background-repeat:no-repeat;
   }
   #process .vignette{display:none}
-  #process .content{padding:1.8rem 1.3rem 4.5rem}
+  #process .content{position:relative;z-index:5;padding:1.5rem 1.3rem 3rem;margin-top:-2rem}
+  .step-card{background:rgba(250,247,242,.62);backdrop-filter:blur(2px)}
 
-  /* ---------- CONTACT: no wash, image fully visible, text has shadow for readability ---------- */
-  #contact{min-height:auto;display:block}
+  /* ---------- CONTACT: image visible, text overlaid ---------- */
+  #contact{min-height:auto;display:block;position:relative}
   #contact .bg-bleed{
+    position:relative;inset:auto;
+    width:100%;
+    padding-bottom:56.25%;
     background-size:100% auto;
     background-position:top center;
     background-repeat:no-repeat;
   }
   #contact .wash{display:none}
-  #contact .content{padding:2rem 1.3rem 4.5rem}
-  #contact h2{color:var(--cream);text-shadow:0 1px 8px rgba(20,30,10,.8)}
-  #contact .contact-copy p{color:var(--cream);text-shadow:0 1px 4px rgba(20,30,10,.7)}
-  #contact .contact-lines li,#contact .contact-lines a{color:var(--cream);text-shadow:0 1px 3px rgba(20,30,10,.6)}
+  #contact .lamp-glow{display:none}
+  #contact .bird{display:none}
+  #contact .content{position:relative;z-index:5;padding:1.5rem 1.3rem 3rem}
+  #contact .contact-grid{display:block}
+  #contact .contact-card{margin-top:1.5rem}
   #land .bg-bleed{
     background-size:100% auto;
     background-repeat:no-repeat;
