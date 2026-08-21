@@ -59,10 +59,9 @@ section{position:relative}
 
 /* ── SECTION 2 — THE LAND ── */
 .land-wrap{position:relative;background:var(--cream)}
-.land-wrap .land-img-wrap{overflow:hidden}
-.land-wrap .land-img-wrap img{width:100%;animation:landBreathe 14s ease-in-out infinite}
-@keyframes landBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-.land-wrap .land-content{background:linear-gradient(to bottom,rgba(250,247,242,.7),var(--cream));padding:2rem 1.5rem 5rem;margin-top:-2rem;position:relative;z-index:1}
+.land-wrap .land-img-wrap{overflow:visible}
+.land-wrap .land-img-wrap video{width:100%;height:auto;display:block;object-fit:contain}
+.land-wrap .land-content{background:var(--cream);padding:2rem 1.5rem 5rem;position:relative;z-index:1}
 .land-wrap .land-content .inner{max-width:1100px;margin:0 auto}
 .land-wrap .heritage{border-left:4px solid var(--burgundy);padding-left:1.3rem;margin-top:1.5rem}
 .land-wrap .heritage p{margin:0 0 .8rem;color:#3d4d2d}
