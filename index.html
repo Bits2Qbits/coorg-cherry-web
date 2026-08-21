@@ -9,205 +9,114 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════ COORG CHERRY BRAND ═══════════════ */
-:root{
-  --green:#2D5A27; --burgundy:#5C1A1B; --cream:#FAF7F2; --gold:#C9A84C;
-  --sans:'Poppins','Helvetica Neue',sans-serif;
-  --serif:Georgia,'Times New Roman',serif;
-}
+:root{--green:#2D5A27;--burgundy:#5C1A1B;--cream:#FAF7F2;--gold:#C9A84C;--sans:'Poppins','Helvetica Neue',sans-serif;--serif:Georgia,'Times New Roman',serif}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  margin:0;padding:0;
-  background:var(--cream);color:var(--green);
-  font-family:var(--serif);font-size:17px;line-height:1.75;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
+body{margin:0;padding:0;background:var(--cream);color:var(--green);font-family:var(--serif);font-size:17px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img,video{max-width:100%;display:block}
 a{color:var(--green);text-decoration:none;transition:color .2s}
 a:hover{color:var(--burgundy)}
 
-/* ── TYPOGRAPHY ── */
 h1,h2,h3{font-family:var(--sans);font-weight:300;letter-spacing:.06em;color:var(--green)}
 h2{font-size:clamp(1.6rem,3.5vw,2.4rem);text-transform:uppercase;margin:0 0 .5rem}
-.sub-label{
-  font-family:var(--sans);font-weight:300;font-size:.8rem;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy);
-}
+.sub-label{font-family:var(--sans);font-weight:300;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy)}
 
 /* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:rgba(250,247,242,.94);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(201,168,76,.4);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.5rem 1.5rem;
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,247,242,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,.4);display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.5rem}
 nav .logo{display:flex;align-items:center;gap:.5rem}
 nav .logo img{height:40px;width:auto}
-nav .logo span{
-  font-family:var(--sans);font-weight:400;font-size:.75rem;
-  letter-spacing:.15em;text-transform:uppercase;color:var(--green);
-}
+nav .logo span{font-family:var(--sans);font-weight:400;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--green)}
 nav .links{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0}
 nav .links a{font-family:var(--sans);font-weight:300;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
 nav .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
 nav .hamburger span{display:block;width:22px;height:2px;background:var(--green);border-radius:1px}
 
-/* ── SECTIONS ── */
-section{position:relative}
-.section-inner{max-width:1100px;margin:0 auto;padding:5rem 1.5rem}
-.cta{
-  display:inline-block;font-family:var(--sans);font-weight:400;
-  font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
-  background:var(--burgundy);color:var(--cream);
-  border:1px solid var(--gold);padding:.85rem 2.2rem;
-  transition:all .3s ease;cursor:pointer;
-}
-.cta:hover{background:#6e2224;transform:translateY(-2px)}
-.gold-line{width:100px;height:1px;background:var(--gold);margin:1.5rem 0;border:none}
+/* ── BREATH ANIMATION — subtle zoom for static images ── */
+.breath{overflow:hidden}
+.breath img{animation:imgBreathe 12s ease-in-out infinite}
+@keyframes imgBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+
+/* ── GOLDEN-HOUR PULSE — warm light overlay ── */
+.golden-frame{position:relative;overflow:hidden}
+.golden-frame img{display:block;width:100%}
+.golden-frame::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 30%,rgba(255,200,100,.08) 0%,transparent 70%);animation:goldenPulse 6s ease-in-out infinite;pointer-events:none}
+@keyframes goldenPulse{0%,100%{opacity:.6}50%{opacity:1}}
 
 /* ── HERO ── */
 .hero{position:relative;width:100%;background:var(--cream);overflow:hidden}
-.hero video,.hero .poster{width:100%;height:auto;display:block;object-fit:contain}
-@media(max-width:640px){
-  .hero video,.hero .poster{object-fit:contain;object-position:center top;max-height:none}
-}
+.hero video{width:100%;height:auto;display:block;object-fit:contain}
 .hero .hero-text{text-align:center;padding:2rem 1.5rem 3rem;background:linear-gradient(to bottom,var(--cream) 0%,#f5f0e5 100%)}
 .hero .hero-text h1{font-size:clamp(1.3rem,4vw,2.2rem);letter-spacing:.3em;margin:0 0 .3rem;color:var(--green)}
 .hero .hero-text .tag{font-family:var(--sans);font-weight:300;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--burgundy);margin-bottom:1.2rem}
 .hero .hero-text p{max-width:600px;margin:0 auto 1.5rem;font-size:.95rem;color:#4a5a3a}
 
-/* ── IMAGE SECTION ── */
+/* ── SECTIONS ── */
+section{position:relative}
+.section-inner{max-width:1100px;margin:0 auto;padding:5rem 1.5rem}
+.cta{display:inline-block;font-family:var(--sans);font-weight:400;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;background:var(--burgundy);color:var(--cream);border:1px solid var(--gold);padding:.85rem 2.2rem;transition:all .3s ease;cursor:pointer}
+.cta:hover{background:#6e2224;transform:translateY(-2px)}
+.gold-line{width:100px;height:1px;background:var(--gold);margin:1.5rem 0;border:none}
 
 /* ── SECTION 2 — THE LAND ── */
 .land-wrap{position:relative;background:var(--cream)}
-.land-wrap .land-img{width:100%}
-.land-wrap .land-content{
-  background:linear-gradient(to bottom,rgba(250,247,242,.85),var(--cream));
-  padding:2rem 1.5rem 5rem;margin-top:-2rem;position:relative;z-index:1;
-}
+.land-wrap .land-img-wrap{overflow:hidden}
+.land-wrap .land-img-wrap img{width:100%;animation:landBreathe 14s ease-in-out infinite}
+@keyframes landBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.land-wrap .land-content{background:linear-gradient(to bottom,rgba(250,247,242,.7),var(--cream));padding:2rem 1.5rem 5rem;margin-top:-2rem;position:relative;z-index:1}
 .land-wrap .land-content .inner{max-width:1100px;margin:0 auto}
-.land-wrap .heritage{
-  border-left:4px solid var(--burgundy);
-  padding-left:1.3rem;margin-top:1.5rem;
-}
+.land-wrap .heritage{border-left:4px solid var(--burgundy);padding-left:1.3rem;margin-top:1.5rem}
 .land-wrap .heritage p{margin:0 0 .8rem;color:#3d4d2d}
 
 /* ── SECTION 3 — THE COFFEE ── */
 .coffee-section{background:var(--cream)}
-.coffee-section .spec-table{
-  width:100%;border-collapse:collapse;margin:1.5rem 0;
-}
-.coffee-section .spec-table td{
-  padding:.7rem 1rem;border-bottom:1px solid rgba(201,168,76,.3);
-  font-size:.9rem;
-}
-.coffee-section .spec-table td:first-child{
-  font-family:var(--sans);font-weight:400;text-transform:uppercase;
-  font-size:.72rem;letter-spacing:.14em;color:var(--burgundy);width:140px;
-}
+.coffee-section .spec-table{width:100%;border-collapse:collapse;margin:1.5rem 0}
+.coffee-section .spec-table td{padding:.7rem 1rem;border-bottom:1px solid rgba(201,168,76,.3);font-size:.9rem}
+.coffee-section .spec-table td:first-child{font-family:var(--sans);font-weight:400;text-transform:uppercase;font-size:.72rem;letter-spacing:.14em;color:var(--burgundy);width:140px}
 .flavor-tags{display:flex;flex-wrap:wrap;gap:.4rem}
-.flavor-tags span{
-  font-family:var(--sans);font-size:.68rem;letter-spacing:.1em;
-  text-transform:uppercase;background:rgba(45,90,39,.08);
-  color:var(--green);padding:.25rem .7rem;border-radius:20px;
-  border:1px solid rgba(201,168,76,.3);
-}
-.lots-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:1.2rem;margin-top:2rem;
-}
-.lot-card{
-  background:rgba(250,247,242,.6);border:1px solid rgba(201,168,76,.3);
-  padding:1.3rem;
-}
+.flavor-tags span{font-family:var(--sans);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(45,90,39,.08);color:var(--green);padding:.25rem .7rem;border-radius:20px;border:1px solid rgba(201,168,76,.3)}
+.lots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;margin-top:2rem}
+.lot-card{background:rgba(250,247,242,.6);border:1px solid rgba(201,168,76,.3);padding:1.3rem}
 .lot-card h4{font-family:var(--sans);font-weight:400;margin:0 0 .3rem;font-size:.95rem}
 .lot-card .lot-process{font-size:.8rem;color:var(--burgundy);margin-bottom:.4rem}
 .lot-card .lot-notes{font-size:.85rem;font-style:italic;color:#5a6a4a}
 
 /* ── SECTION 4 — THE PROCESS ── */
 .process-section{background:var(--cream)}
-.process-section .process-img{width:100%;margin-bottom:1.5rem}
-.steps-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1rem;max-width:1100px;margin:0 auto;padding:0 1.5rem 4rem;
-}
-.step-card{
-  background:var(--cream);border:1px solid rgba(201,168,76,.4);
-  padding:1.2rem;
-}
-.step-num{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:32px;height:32px;border-radius:50%;
-  background:var(--green);color:var(--cream);
-  font-family:var(--sans);font-size:.8rem;margin-bottom:.6rem;
-}
-.step-card h4{
-  font-family:var(--sans);font-weight:400;font-size:.8rem;
-  letter-spacing:.1em;text-transform:uppercase;margin:0 0 .4rem;
-}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:1100px;margin:0 auto;padding:0 1.5rem 4rem}
+.step-card{background:var(--cream);border:1px solid rgba(201,168,76,.4);padding:1.2rem}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--green);color:var(--cream);font-family:var(--sans);font-size:.8rem;margin-bottom:.6rem}
+.step-card h4{font-family:var(--sans);font-weight:400;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 .4rem}
 .step-card p{font-size:.85rem;color:#4a5a3a;margin:0}
 
 /* ── SECTION 5 — THE PEOPLE ── */
-.people-section{background:var(--cream);position:relative;overflow:hidden}
-.people-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;
-  align-items:center;max-width:1100px;margin:0 auto;padding:2rem 1.5rem 5rem;
-}
-.people-grid img{width:100%;border:1px solid var(--gold);box-shadow:0 16px 40px rgba(45,90,39,.2)}
+.people-section{background:var(--cream)}
+.people-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;max-width:1100px;margin:0 auto;padding:2rem 1.5rem 5rem}
 .people-copy p{margin:0 0 1rem;color:#3d4d2d}
 
 /* ── SECTION 6 — CONTACT ── */
 .contact-section{background:var(--cream)}
-.contact-section .contact-img{width:100%}
-.contact-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:2rem;
-  max-width:1100px;margin:0 auto;padding:2rem 1.5rem 5rem;
-}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:1100px;margin:0 auto;padding:2rem 1.5rem 5rem}
 .contact-lines{list-style:none;padding:0;margin:0 0 1.5rem}
 .contact-lines li{margin-bottom:.5rem;font-family:var(--sans);font-size:.85rem}
-.contact-lines strong{
-  font-weight:400;text-transform:uppercase;font-size:.7rem;
-  letter-spacing:.14em;color:var(--burgundy);display:inline-block;width:100px;
-}
-.qr-frame{
-  border:2px dashed var(--gold);padding:1.5rem;text-align:center;
-  font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--burgundy);margin-bottom:1rem;
-}
+.contact-lines strong{font-weight:400;text-transform:uppercase;font-size:.7rem;letter-spacing:.14em;color:var(--burgundy);display:inline-block;width:100px}
+.qr-frame{border:2px dashed var(--gold);padding:1.5rem;text-align:center;font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--burgundy);margin-bottom:1rem}
 .booth-img{border:1px solid var(--gold);margin-top:1rem}
 
 /* ── FOOTER ── */
-footer{
-  text-align:center;padding:3rem 1.5rem;
-  border-top:1px solid rgba(201,168,76,.3);
-  background:var(--cream);
-}
+footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(201,168,76,.3);background:var(--cream)}
 footer img{height:50px;margin:0 auto 1rem}
-footer .foot-tag{
-  font-family:var(--sans);font-size:.72rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--burgundy);margin-bottom:1rem;
-}
+footer .foot-tag{font-family:var(--sans);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy);margin-bottom:1rem}
 footer .socials{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem}
 footer .socials a{font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
 footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
 
 /* ── REDUCED MOTION ── */
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 
 /* ── MOBILE ── */
-@media(max-width:900px){
-  .steps-grid{grid-template-columns:1fr 1fr}
-  .people-grid,.contact-grid{grid-template-columns:1fr;gap:1.5rem}
-}
+@media(max-width:900px){.steps-grid{grid-template-columns:1fr 1fr}.people-grid,.contact-grid{grid-template-columns:1fr;gap:1.5rem}}
 @media(max-width:640px){
-  nav .links{
-    position:fixed;top:52px;right:0;left:0;background:var(--cream);
-    border-bottom:1px solid var(--gold);flex-direction:column;
-    gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;
-  }
+  nav .links{position:fixed;top:52px;right:0;left:0;background:var(--cream);border-bottom:1px solid var(--gold);flex-direction:column;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease}
   nav .links.open{max-height:280px}
   nav .links a{display:block;padding:.85rem 1.5rem;border-top:1px solid rgba(201,168,76,.2)}
   nav .hamburger{display:flex}
@@ -223,26 +132,19 @@ footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
 </head>
 <body>
 
-<!-- ═══════════════ NAV ═══════════════ -->
+<!-- ═══════ NAV ═══════ -->
 <nav>
-  <a class="logo" href="#top">
-    <img src="img/coorg_cherry_logo_canonical.jpg" alt="Coorg Cherry">
-    <span>Coorg Cherry</span>
-  </a>
+  <a class="logo" href="#top"><img src="img/coorg_cherry_logo_canonical.jpg" alt="Coorg Cherry"><span>Coorg Cherry</span></a>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="links" id="navLinks">
-    <li><a href="#land">The Land</a></li>
-    <li><a href="#coffee">The Coffee</a></li>
-    <li><a href="#process">The Process</a></li>
-    <li><a href="#people">The People</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#land">The Land</a></li><li><a href="#coffee">The Coffee</a></li><li><a href="#process">The Process</a></li><li><a href="#people">The People</a></li><li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- ═══════════════ HERO ═══════════════ -->
+<!-- ═══════ HERO ═══════ -->
 <section id="top" class="hero">
   <video autoplay muted loop playsinline poster="img/section_hero.jpg" preload="auto">
-    <source src="img/hero_video.mp4" type="video/mp4">
+    <source src="img/hero_slow.mp4" type="video/mp4">
   </video>
   <div class="hero-text">
     <h1>COORG CHERRY</h1>
@@ -252,11 +154,9 @@ footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
   </div>
 </section>
 
-<!-- ═══════════════ THE LAND ═══════════════ -->
+<!-- ═══════ THE LAND ═══════ -->
 <section id="land" class="land-wrap">
-  <video autoplay muted loop playsinline poster="img/section_land.jpg" preload="auto" class="land-img">
-    <source src="img/section_land_animated.mp4" type="video/mp4">
-  </video>
+  <div class="land-img-wrap"><img src="img/section_land.jpg" alt="Coorg rainforest shade-grown coffee estate"></div>
   <div class="land-content">
     <div class="inner">
       <h2>The Land</h2>
@@ -270,32 +170,25 @@ footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
   </div>
 </section>
 
-<!-- ═══════════════ THE COFFEE ═══════════════ -->
+<!-- ═══════ THE COFFEE ═══════ -->
 <section id="coffee" class="coffee-section">
   <div class="section-inner">
     <h2>The Coffee</h2>
     <div class="sub-label">Featured Estate: Chandragiri — Fermented Washed Arabica</div>
     <hr class="gold-line">
-    <video autoplay muted loop playsinline poster="img/section_coffee.jpg" preload="auto" style="margin:2rem 0;border:1px solid var(--gold);width:100%">
-    <source src="img/section_coffee_animated.mp4" type="video/mp4">
-  </video>
+    <div class="breath"><img src="img/section_coffee.jpg" alt="Chandragiri coffee cherry cluster with flavor notes" style="margin:2rem 0;border:1px solid var(--gold)"></div>
     <p>One estate, curated pipeline. Currently featuring Chandragiri — a specialty-grade Arabica grown between 1,000 and 1,750 metres in Coorg's rainforest canopy, washed and fermented before a slow sun-dry that lets the cup develop real complexity — cocoa and hazelnut up front, berry and citrus lifting through the middle, molasses and spice in the finish. We don't cup it ourselves and tell you it's exceptional — we let a roaster's own cupping table decide that.</p>
     <table class="spec-table" id="specTable"></table>
     <a class="cta" href="#contact">Request a Sample</a>
-
     <h3 style="margin-top:3rem">Available Lots</h3>
     <div class="lots-grid" id="lotsGrid"></div>
-    <div style="text-align:center;margin-top:1.5rem">
-      <a href="#contact" style="font-family:var(--sans);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase">View Full Pipeline →</a>
-    </div>
+    <div style="text-align:center;margin-top:1.5rem"><a href="#contact" style="font-family:var(--sans);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase">View Full Pipeline →</a></div>
   </div>
 </section>
 
-<!-- ═══════════════ THE PROCESS ═══════════════ -->
+<!-- ═══════ THE PROCESS ═══════ -->
 <section id="process" class="process-section">
-  <video autoplay muted loop playsinline poster="img/section_process.jpg" preload="auto" class="process-img" style="width:100%">
-    <source src="img/section_process_animated.mp4" type="video/mp4">
-  </video>
+  <div class="breath"><img src="img/section_process.jpg" alt="4-step coffee process: hand-picked, washed, sun-dried, shipped direct" style="width:100%"></div>
   <div style="text-align:center;padding:0 1.5rem 1rem">
     <h2>The Process</h2>
     <div class="sub-label">From cherry to green bean, four steps, no middlemen</div>
@@ -304,7 +197,7 @@ footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
   <p style="text-align:center;font-style:italic;padding:0 1.5rem 3rem;color:#4a5a3a">"A direct relationship, not a supply chain. Grown by family. Shipped by hand."</p>
 </section>
 
-<!-- ═══════════════ THE PEOPLE ═══════════════ -->
+<!-- ═══════ THE PEOPLE ═══════ -->
 <section id="people" class="people-section">
   <div class="people-grid">
     <div class="people-copy">
@@ -313,15 +206,13 @@ footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
       <hr class="gold-line">
       <p>Coorg Cherry exists because its founder grew up on this land before he ever sold a bag of it. He's Kodava — the same community that has tended these estates for generations — and the relationship behind every shipment is a family one, not a sourcing contract renegotiated each season. Direct trade, for us, means the grower is paid directly and fairly, with no importer's markup sitting between the estate and the roaster who buys from us.</p>
     </div>
-    <video autoplay muted loop playsinline poster="img/section_people.jpg" preload="auto" style="width:100%;border:1px solid var(--gold);box-shadow:0 16px 40px rgba(45,90,39,.2)">
-    <source src="img/section_people_animated.mp4" type="video/mp4">
-  </video>
+    <div class="golden-frame"><img src="img/section_people.jpg" alt="Kodava couple in traditional dress at golden hour" style="border:1px solid var(--gold);box-shadow:0 16px 40px rgba(45,90,39,.2)"></div>
   </div>
 </section>
 
-<!-- ═══════════════ CONTACT ═══════════════ -->
+<!-- ═══════ CONTACT ═══════ -->
 <section id="contact" class="contact-section">
-  <img class="contact-img" src="img/section_contact.jpg" alt="Coorg Cherry tasting table with brass lamp and messenger bird">
+  <img src="img/section_contact.jpg" alt="Coorg Cherry tasting table with brass lamp and messenger bird" style="width:100%">
   <div class="contact-grid">
     <div>
       <h2>Bring Coorg Cherry to Your Roastery</h2>
@@ -340,81 +231,31 @@ footer .copy{font-size:.75rem;color:#999;margin-top:.5rem}
   </div>
 </section>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
+<!-- ═══════ FOOTER ═══════ -->
 <footer>
   <img src="img/coorg_cherry_logo_canonical.jpg" alt="Coorg Cherry">
   <div class="foot-tag">Direct-Trade Coffee Beans · Coorg, India</div>
-  <div class="socials">
-    <a href="#" rel="noopener">Instagram</a>
-    <a href="#" rel="noopener">LinkedIn</a>
-    <a href="https://wa.me/85296163523" target="_blank" rel="noopener">WhatsApp</a>
-  </div>
+  <div class="socials"><a href="#" rel="noopener">Instagram</a><a href="#" rel="noopener">LinkedIn</a><a href="https://wa.me/85296163523" target="_blank" rel="noopener">WhatsApp</a></div>
   <div class="copy">&copy; Bits2Qbits 2026</div>
 </footer>
 
 <script>
-/* ═══════════════ MODULAR DATA ═══════════════ */
-const featuredEstate = {
-  varietal:"Chandragiri",process:"Fermented Washed Arabica",
-  altitude:"1,000–1,750m",origin:"Coorg, Karnataka, India",
-  grade:"Specialty-grade Arabica",
-  flavor_notes:["cocoa","hazelnut","berry","citrus","molasses","spice"]
-};
+/* ═══════ MODULAR DATA ═══════ */
+const featuredEstate={varietal:"Chandragiri",process:"Fermented Washed Arabica",altitude:"1,000–1,750m",origin:"Coorg, Karnataka, India",grade:"Specialty-grade Arabica",flavor_notes:["cocoa","hazelnut","berry","citrus","molasses","spice"]};
+const availableLots=[{varietal:"Chandragiri",process:"Whiskey Barrel Aged",notes:"oak, vanilla, cocoa, caramel"},{varietal:"SLN-795",process:"Sugar Ferment Naturals",notes:"brown sugar, toffee, plum"},{varietal:"CXR Robusta",process:"Honey Sun Dried",notes:"honey, cocoa, hazelnut"},{varietal:"Mix",process:"Wine Fermented",notes:"red wine, blackberry, cherry"},{varietal:"CXR Robusta",process:"Sugar Ferment Naturals",notes:"jaggery, cocoa, roasted nuts"},{varietal:"Mix",process:"Cinnamon Fermented",notes:"cinnamon, baked apple, clove"}];
+const processSteps=[{label:"Hand-Picked",copy:"Only ripe cherries, selected by hand at harvest — never stripped from the branch."},{label:"Washed & Fermented",copy:"A controlled fermentation, then washed clean with spring water before drying begins."},{label:"Sun-Dried",copy:"Slow sun-dried on raised African beds, turned by hand until the parchment is ready."},{label:"Shipped Direct",copy:"Green beans travel estate-to-Hong Kong — no trading house in between."}];
 
-const availableLots = [
-  {varietal:"Chandragiri",process:"Whiskey Barrel Aged",notes:"oak, vanilla, cocoa, caramel"},
-  {varietal:"SLN-795",process:"Sugar Ferment Naturals",notes:"brown sugar, toffee, plum"},
-  {varietal:"CXR Robusta",process:"Honey Sun Dried",notes:"honey, cocoa, hazelnut"},
-  {varietal:"Mix",process:"Wine Fermented",notes:"red wine, blackberry, cherry"},
-  {varietal:"CXR Robusta",process:"Sugar Ferment Naturals",notes:"jaggery, cocoa, roasted nuts"},
-  {varietal:"Mix",process:"Cinnamon Fermented",notes:"cinnamon, baked apple, clove"}
-];
+document.getElementById("specTable").innerHTML=[["Varietal",featuredEstate.varietal],["Origin",featuredEstate.origin],["Altitude",featuredEstate.altitude],["Process","Washed, fermented, sun-dried"],["Grade",featuredEstate.grade],["Flavor notes",'<div class="flavor-tags">'+featuredEstate.flavor_notes.map(n=>"<span>"+n+"</span>").join("")+"</div>"]].map(r=>"<tr><td>"+r[0]+"</td><td>"+r[1]+"</td></tr>").join("");
+document.getElementById("lotsGrid").innerHTML=availableLots.map(l=>'<div class="lot-card"><h4>'+l.varietal+'</h4><div class="lot-process">'+l.process+'</div><div class="lot-notes">'+l.notes+'</div></div>').join("");
+document.getElementById("steps").innerHTML=processSteps.map((s,i)=>'<div class="step-card"><span class="step-num">'+(i+1)+'</span><h4>'+s.label+'</h4><p>'+s.copy+'</p></div>').join("");
 
-const processSteps = [
-  {label:"Hand-Picked",copy:"Only ripe cherries, selected by hand at harvest — never stripped from the branch."},
-  {label:"Washed & Fermented",copy:"A controlled fermentation, then washed clean with spring water before drying begins."},
-  {label:"Sun-Dried",copy:"Slow sun-dried on raised African beds, turned by hand until the parchment is ready."},
-  {label:"Shipped Direct",copy:"Green beans travel estate-to-Hong Kong — no trading house in between."}
-];
+/* ═══════ HAMBURGER ═══════ */
+document.getElementById("hamburger").addEventListener("click",()=>{document.getElementById("navLinks").classList.toggle("open")});
+document.querySelectorAll("#navLinks a").forEach(a=>{a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open"))});
 
-// Render spec table
-document.getElementById("specTable").innerHTML=[
-  ["Varietal",featuredEstate.varietal],
-  ["Origin",featuredEstate.origin],
-  ["Altitude",featuredEstate.altitude],
-  ["Process","Washed, fermented, sun-dried"],
-  ["Grade",featuredEstate.grade],
-  ["Flavor notes",'<div class="flavor-tags">'+featuredEstate.flavor_notes.map(n=>"<span>"+n+"</span>").join("")+"</div>"]
-].map(r=>"<tr><td>"+r[0]+"</td><td>"+r[1]+"</td></tr>").join("");
-
-// Render lots
-document.getElementById("lotsGrid").innerHTML=availableLots.map(l=>
-  '<div class="lot-card"><h4>'+l.varietal+'</h4><div class="lot-process">'+l.process+'</div><div class="lot-notes">'+l.notes+'</div></div>'
-).join("");
-
-// Render steps
-document.getElementById("steps").innerHTML=processSteps.map((s,i)=>
-  '<div class="step-card"><span class="step-num">'+(i+1)+'</span><h4>'+s.label+'</h4><p>'+s.copy+'</p></div>'
-).join("");
-
-/* ═══════════════ HAMBURGER ═══════════════ */
-document.getElementById("hamburger").addEventListener("click",()=>{
-  document.getElementById("navLinks").classList.toggle("open");
-});
-document.querySelectorAll("#navLinks a").forEach(a=>{
-  a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open"));
-});
-
-/* ═══════════════ FALLBACK: static poster for iOS/unsupported ═══════════════ */
+/* ═══════ HERO FALLBACK ═══════ */
 const vid=document.querySelector(".hero video");
-if(vid){
-  vid.addEventListener("error",()=>{
-    vid.style.display="none";
-    const img=document.createElement("img");
-    img.src="img/section_hero.jpg";img.alt="Coorg Cherry floating island";
-    img.style.width="100%";vid.parentNode.insertBefore(img,vid);
-  });
-}
+if(vid){vid.addEventListener("error",()=>{vid.style.display="none";const img=document.createElement("img");img.src="img/section_hero.jpg";img.alt="Coorg Cherry floating island";img.style.width="100%";vid.parentNode.insertBefore(img,vid)})}
 </script>
 </body>
 </html>
